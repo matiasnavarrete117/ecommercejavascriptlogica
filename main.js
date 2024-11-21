@@ -35,7 +35,7 @@ class Carrito {
         this.productosID = []
     }
     agregarProducto(producto){
-        this.productos.push(producto)
+        this.productos.push(productosLibreriaClase[id - 1])
     }
 
     listaArrayID(){
@@ -54,9 +54,7 @@ let index = this.productosID.indexOf(id)
      }else{
       this.productos.splice(index, 1)
      }
-
   }
-
 }
 
 const carritoInstance = new Carrito()
@@ -66,12 +64,40 @@ function coder(){
         let opciones = "Bienvenidos a Anvara Joyas \n 1-Ver productos \n 2-Comprar a partir de id \n 3-Ver carrito \n 4-Quitar producto a partir de un id \n 5- Comprar"
     }
 
-    switch (key) {
+    switch (opciones) {
+        case 0:
+            bandera = false
+            break
+
         case 1:
-            bandera
+            bandera = confirm ("¿Desea seguir operando?")
             break;
+
+         case 2:
+            let idAgregar = Number(prompt("¿Puede usted enviar el id del producto?"))
+            carritoInstance.agregarProducto(idAgregar)
+            bandera = confirm("¿Quiere seguir operando?")
+
+         case 3:
+            let idEliminar = Number(prompt("¿Puede usted enviar el id del producto?"))
+            carritoInstance.quitarProducto(idAgregar)
+           bandera = confirm ("¿Desea seguir operando?")
+           break;
+
+         case 4:
+           bandera = confirm ("¿Desea seguir operando?")
+           break;
+
+          case 5:
+            bandera = confirm ("¿Desea seguir operando?")
+            break;
+
+         default:
+            alert("Esa opción no está disponible")
+            bandera = confirm("¿Desea Seguir Operando?")
+            break
+        
     
-        default:
-            break;
+        
     }
 }
